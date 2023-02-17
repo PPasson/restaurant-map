@@ -42,6 +42,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
+  axios: {
+    proxy: true
+  },
   proxy: {
     '/maps': {
       target: 'https://maps.googleapis.com/maps/api',
