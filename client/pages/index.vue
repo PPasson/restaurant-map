@@ -46,6 +46,7 @@
               >
             </div>
             <p>{{ result.formatted_address }}</p>
+            <a :href="'https://www.google.com/maps/place/?q=place_id:' + result.place_id" target="_blank">Let's go ↗</a>
           </b-card>
         </div>
       </div>
