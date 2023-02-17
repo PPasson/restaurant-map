@@ -13,8 +13,7 @@ export default {};
 <style scoped>
 .nav {
   background-image: linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253));
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 h2 {
