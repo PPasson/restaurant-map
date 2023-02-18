@@ -1,13 +1,17 @@
 <template>
   <div>
-    <NavBar />
+    <Cover />
     <div class="container">
-      <div class="input-group mb-3 pt-4" style="max-width: 30rem">
+      <div
+        class="input-group mb-3 mt-n5 p-4 pill-card"
+        style="max-width: 30rem"
+      >
         <input
           type="text"
           class="form-control"
           placeholder="Search for restaurants"
           v-model="keyword"
+          @keydown.enter="searchRestaurants()"
         />
         <div class="input-group-append">
           <button
@@ -46,7 +50,14 @@
               >
             </div>
             <p>{{ result.formatted_address }}</p>
-            <a :href="'https://www.google.com/maps/place/?q=place_id:' + result.place_id" target="_blank">Let's go ↗</a>
+            <a
+              :href="
+                'https://www.google.com/maps/place/?q=place_id:' +
+                result.place_id
+              "
+              target="_blank"
+              >Let's go ↗</a
+            >
           </b-card>
         </div>
       </div>
@@ -125,5 +136,10 @@ export default {
     opacity: 50%;
     text-shadow: 1px 1px 2px black, 0 0 25px yellowgreen, 0 0 5px darkgoldenrod;
   }
+}
+.pill-card {
+  background-color: #ffff;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 </style>
