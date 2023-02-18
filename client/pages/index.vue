@@ -96,6 +96,7 @@ export default {
           language: "en",
           key: apiKey,
         },
+        mode: "cors",
       });
       this.loading = false;
       this.results = response.results;
