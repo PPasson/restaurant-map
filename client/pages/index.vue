@@ -86,9 +86,15 @@ export default {
     };
   },
   methods: {
+    //search function: work when user press ENTER key or click search button
     async searchRestaurants() {
+      //turn loader on while getting data
       this.loading = true;
+
+      //define API key by read from .env file
       const apiKey = process.env.GOOGLE_MAP_API_KEY;
+
+      //get data from google map api
       const response = await this.$axios.$get("/maps/place/textsearch/json", {
         params: {
           query: this.keyword,
@@ -98,22 +104,36 @@ export default {
         },
         mode: "cors",
       });
+
+      //turn loader off and set results from response to results
       this.loading = false;
       this.results = response.results;
+
+      //set nextPageToken in case user want to get more result
       this.nextPageToken = response.next_page_token;
-      console.log("result = ", this.results);
     },
+
+    //load more function: in case user want to get more result
     async loadMoreResults() {
       this.loading = true;
+
+      //define API key by read from .env file
       const apiKey = process.env.GOOGLE_MAP_API_KEY;
+
+      //get more data by use page token that we already set on previous function
       const response = await this.$axios.$get("/maps/place/textsearch/json", {
         params: {
           pagetoken: this.nextPageToken,
           key: apiKey,
         },
       });
+      //turn loader off
       this.loading = false;
+
+      //concat more results with previous results
       this.results = this.results.concat(response.results);
+
+      //set nextPageToken in case user want to get more result
       this.nextPageToken = response.next_page_token;
     },
   },
