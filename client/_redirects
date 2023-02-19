@@ -1,2 +1,0 @@
-/api/* https://maps.googleapis.com/:splat 200
-/api/* Access-Control-Allow-Origin: *
