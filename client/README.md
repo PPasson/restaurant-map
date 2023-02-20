@@ -1,5 +1,11 @@
 # client
 
+to run the project you can replace API key in .env file
+
+```bash
+GOOGLE_MAP_API_KEY = <YOUR_API_KEY_HERE>
+```
+
 ## Build Setup
 
 ```bash
