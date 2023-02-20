@@ -79,7 +79,7 @@ export default {
   name: "IndexPage",
   data() {
     return {
-      keyword: "",
+      keyword: "Bang sue",
       results: [],
       loading: false,
       nextPageToken: null,
@@ -128,6 +128,7 @@ export default {
         },
       });
       //turn loader off
+      console.log("results ==", response.results)
       this.loading = false;
 
       //concat more results with previous results
